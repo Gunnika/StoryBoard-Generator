@@ -35,7 +35,8 @@ The high-level project structure is organized as follows:
   - **install.sh** Script to install all requirements for this project.
 
 ## Architecture
-![alt text](https://github.com/aditi098/CSE_291_GenAI/blob/main/arch4.png)
+![arch4](https://github.com/Gunnika/StoryBoard-Generator/assets/34855465/11cb2f48-845b-427c-8f1b-a40711926638)
+
 
 The above diagram is an end-end pipeline for our final architecture. The raw story text is segmented into multiple segments using the TextTiling Segmentor, each of these segments are summarised into a one line summary by DistillBART-xsum. For the first summary, an image is generated using Text-to-image Stable Diffusion. The second image is conditioned on the first image to maintain some consistency in the theme. From thereon, the generated image is conditioned on the image with highest prompt similarity. Finally, two evaluations scores are calculated, one based on the text-image similarity using CLIP to evaluate if the images correspond to the prompts. The second score is used to evaluate the coherency in the storyboard, by doing a pairwise-cosine similarity evaluation on the image embeddings and averaging over them
 
